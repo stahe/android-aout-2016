@@ -1,0 +1,1275 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Introduction à la programmation de tablettes Android avec Android Studio">
+      
+      
+        <meta name="author" content="Serge Tahé">
+      
+      
+        <link rel="canonical" href="https://stahe.github.io/android-aout-2016/tp-1-gestion-basique-dune-fiche-de-paie.html">
+      
+      
+        <link rel="prev" href="etude-de-cas---gestion-de-rendez-vous.html">
+      
+      
+        <link rel="next" href="tp-2---piloter-des-arduinos-avec-une-tablette-android.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>4. TP 1 : Gestion basique d'une fiche de paie - Introduction à la programmation de tablettes Android avec Android Studio</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/focus.css">
+    
+      <link rel="stylesheet" href="stylesheets/bidi.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    var siteName = "Introduction à la programmation de tablettes Android avec Android Studio";
+    gtag('config', 'G-EBZC3JVJNR', {
+        'page_title': siteName
+    });
+  </script>
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#4-tp-1-gestion-basique-dune-fiche-de-paie" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="Introduction à la programmation de tablettes Android avec Android Studio" class="md-header__button md-logo" aria-label="Introduction à la programmation de tablettes Android avec Android Studio" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Introduction à la programmation de tablettes Android avec Android Studio
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              4. TP 1 : Gestion basique d'une fiche de paie
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="Passer en mode sombre"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Passer en mode sombre" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="Passer en mode clair"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Passer en mode clair" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://stahe.github.io/android-aout-2016" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Introduction à la programmation de tablettes Android avec Android Studio" class="md-nav__button md-logo" aria-label="Introduction à la programmation de tablettes Android avec Android Studio" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Introduction à la programmation de tablettes Android avec Android Studio
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://stahe.github.io/android-aout-2016" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Accueil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="apprentissage-de-la-programmation-android.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Apprentissage de la programmation Android
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="squelette-dun-client-android-communicant-avec-un-service-web--json.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Squelette d'un client Android communicant avec un service web / jSON
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="etude-de-cas---gestion-de-rendez-vous.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Étude de cas - Gestion de rendez-vous
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. TP 1 : Gestion basique d'une fiche de paie
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="tp-1-gestion-basique-dune-fiche-de-paie.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. TP 1 : Gestion basique d'une fiche de paie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#41-introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1. Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#42-la-base-de-donnees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2. La base de données
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.2. La base de données">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#421-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2.1. Définition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#422-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2.2. Génération
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#423-modelisation-java-de-la-base-de-donnees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2.3. Modélisation Java de la base de données
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#43-installation-du-serveur-web-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3. Installation du serveur web / jSON
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.3. Installation du serveur web / jSON">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#431-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3.1. Installation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#432-les-url-du-service-webjson" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3.2. Les URL du service web/jSON
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#433-les-reponses-json-du-service-webjson" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3.3. Les réponses jSON du service web/jSON
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#44-tests-du-client-android" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4. Tests du client Android
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#45-travail-a-faire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5. Travail à faire
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tp-2---piloter-des-arduinos-avec-une-tablette-android.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. TP 2 - Piloter des Arduinos avec une tablette Android
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="annexes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Annexes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<p><span id="refheading1646501704398319" name="refheading1646501704398319" class="odt-bookmark-anchor"></span></p>
+<h1 id="4-tp-1-gestion-basique-dune-fiche-de-paie">4. TP 1 : Gestion basique d&#x27;une fiche de paie</h1>
+<p><span id="refheading61956428607977" name="refheading61956428607977" class="odt-bookmark-anchor"></span></p>
+<h2 id="41-introduction">4.1. Introduction</h2>
+<p>Pour appliquer ce qui a été vu précédemment, nous proposons maintenant un travail consistant à écrire un client Android pour tablette, permettant de simuler des calculs de feuille de salaire des employés d&#x27;une association.</p>
+<p>L&#x27;application aura une architecture client / serveur :</p>
+<p><img src="images/100000000000035C0000026E84D169AC.png" width="602" height="435" style="width:15.921cm;height:11.52cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000035C0000026E84D169AC.png" /></p>
+<ul>
+  <li>le serveur [1] est founi ;
+  </li>
+  <li>il faut construire le client Android [2].
+  </li>
+</ul>
+
+<p><span id="refheading154461029747953" name="refheading154461029747953" class="odt-bookmark-anchor"></span></p>
+<h2 id="42-la-base-de-donnees">4.2. La base de données</h2>
+<p><span id="refheading154481029747953" name="refheading154481029747953" class="odt-bookmark-anchor"></span></p>
+<h3 id="421-definition">4.2.1. Définition</h3>
+<p>Les données statiques utiles pour construire la fiche de paie seront placées dans une base de données que nous désignerons par la suite <span id="dbpam" name="dbpam" class="odt-bookmark-anchor"></span><strong>dbpam</strong>. Cette base de données a les tables suivantes :</p>
+<div style="margin:0 0 0.75em 0; background-color:#cccccc; padding:0.35em 0.6em">Table <b>EMPLOYES</b> : rassemble des informations sur les différentes assistantes maternelles</div>
+
+<p><strong>Structure</strong> :</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ID
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">clé primaire</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>VERSION
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">n° de version – augmente à chaque modification de la ligne</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>SS
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">numéro de sécurité sociale de l&#x27;employé - unique</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>NOM
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">nom de l&#x27;employé</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>PRENOM
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">son prénom</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>ADRESSE
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">son adresse</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>VILLE
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">sa ville</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>CODEPOSTAL
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">son code postal</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>INDEMNITE_ID
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">clé étrangère sur le champ [ID] de la table [INDEMNITES]</div></td></tr></table>
+
+<p>Son contenu pourrait être le suivant :</p>
+<p><img src="images/10000000000003290000005A7A2F8F71.png" width="566" height="63" style="width:14.981cm;height:1.67cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003290000005A7A2F8F71.png" /></p>
+<div style="margin:0 0 0.75em 0; background-color:#cccccc; padding:0.35em 0.6em">Table <b>COTISATIONS</b> : rassemble des pourcentages nécessaires au calcul des cotisations sociales</div>
+
+<p><strong>Structure</strong> :</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>ID
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">clé primaire</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>VERSION
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">n° de version – augmente à chaque modification de la ligne</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>CSGRDS
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">pourcentage : contribution sociale généralisée + contribution au remboursement de la dette sociale</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>CSGD
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">pourcentage : contribution sociale généralisée déductible</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>SECU
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">pourcentage : sécurité sociale, veuvage, vieillesse</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>RETRAITE
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">pourcentage : retraite complémentaire + assurance chômage </div></td></tr></table>
+
+<p>Son contenu pourrait être le suivant :</p>
+<p><img src="images/10000000000001820000004455B7B537.png" width="270" height="48" style="width:7.151cm;height:1.259cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001820000004455B7B537.png" /></p>
+<p>Les taux des cotisations sociales sont indépendants du salarié. La table précédente n&#x27;a qu&#x27;une ligne.</p>
+<div style="margin:0 0 0.75em 0; background-color:#cccccc; padding:0.35em 0.6em">Table <b>INDEMNITES</b> : rassemble les éléments permettant le calcul du salaire à payer.</div>
+
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>ID
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">clé primaire</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>VERSION
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">n° de version – augmente à chaque modification de la ligne</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>INDICE
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">indice de traitement - unique</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>BASEHEURE
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">prix net en euro d’une heure de garde</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>ENTRETIENJOUR
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">indemnité d’entretien en euro par jour de garde</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>REPASJOUR
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">indemnité de repas en euro par jour de garde</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>INDEMNITESCP
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">indemnité de congés payés. C&#x27;est un pourcentage à appliquer au salaire de base.</div></td></tr></table>
+
+<p>Son contenu pourrait être le suivant :</p>
+<p><img src="images/10000000000002B900000058BF2B5FE8.png" width="488" height="62" style="width:12.91cm;height:1.63cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002B900000058BF2B5FE8.png" /></p>
+<p>On notera que les indemnités peuvent varier d&#x27;une assistante maternelle à une autre. Elles sont en effet associées à une assistante maternelle précise via l&#x27;indice de traitement de celle-ci. Ainsi Mme Marie Jouveinal qui a un indice de traitement de 2 (table EMPLOYES) a un salaire horaire de 2,1 euro (table INDEMNITES).</p>
+<p><span id="refheading154501029747953" name="refheading154501029747953" class="odt-bookmark-anchor"></span></p>
+<h3 id="422-generation">4.2.2. Génération</h3>
+<p>Le script [dbpam_hibernate.sql] de génération de la base de données est fourni :</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000000BF000000932F0E0E55.png" width="134" height="103" style="display:inline-block; margin:4px;width:3.54cm;height:2.72cm;" class="odt-zoomable" data-zoom-src="images/10000000000000BF000000932F0E0E55.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td></tr></table>
+
+<p>Créez la base de données [dbpam_hibernate] (c&#x27;est le nom de la BD que le serveur web / jSON exploite) et faites en sorte que le login <em>root</em> sans mot de passe puisse y accéder. Vous pouvez procéder ainsi :</p>
+<p>Lancez MySQL puis [PhpMyAdmin] :</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000000DA0000008A8AEE8CA8.png" width="153" height="97" style="display:inline-block; margin:4px;width:4.039cm;height:2.559cm;" class="odt-zoomable" data-zoom-src="images/10000000000000DA0000008A8AEE8CA8.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/100000000000028C0000014124DD40FA.png" width="401" height="197" style="display:inline-block; margin:4px;width:10.601cm;height:5.218cm;" class="odt-zoomable" data-zoom-src="images/100000000000028C0000014124DD40FA.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td></tr></table>
+
+<ul>
+  <li>[1-2] : importez le script [dbpam_hibernate.sql] puis exécutez-le ;
+  </li>
+</ul>
+
+<p><span id="refheading154521029747953" name="refheading154521029747953" class="odt-bookmark-anchor"></span></p>
+<h3 id="423-modelisation-java-de-la-base-de-donnees">4.2.3. Modélisation Java de la base de données</h3>
+<p>Les éléments des tables [EMPLOYES], [INDEMNITES] et [COTISATIONS] sont modélisés par les classes suivantes :</p>
+<p><u><strong>[<span id="employe" name="employe" class="odt-bookmark-anchor"></span>Employe]</strong></u></p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> pam.entities;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> java.io.Serializable;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">class</span><span style="color:#000000"> Employe </span><span style="font-weight:bold;color:#7f0055">implements</span><span style="color:#000000"> Serializable {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">static</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">final</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">long</span><span style="color:#000000"> serialVersionUID = 1L;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> Long id;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> version;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> String SS;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> String nom;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> String prenom;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> String adresse;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> String ville;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> String codePostal;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> idIndemnite;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> Indemnite indemnite;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> Employe() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> Employe(String SS, String nom, String prenom, String adresse, String ville, String codePostal, Indemnite indemnite) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    ...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  // getters et setters</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">....</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<ul>
+  <li>lignes 8-15 : ces champs correspondent aux colonnes de la table [EMPLOYES] ;
+  </li>
+  <li>ligne 16 : le champ [indemniteId] correspond à la colonne [INDEMNITE_ID] qui est la clé étrangère de la table [EMPLOYES] ;
+  </li>
+  <li>ligne 17 : l&#x27;indemnité de l&#x27;employé. Ce champ n&#x27;est pas toujours renseigné :
+    <ul>
+      <li>il ne l&#x27;est pas lorsqu&#x27;on demande l&#x27;URL [/employes],
+      </li>
+      <li>il l&#x27;est lorsqu&#x27;on demande l&#x27;URL [/salaire] ;
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p>[<span id="indemnite" name="indemnite" class="odt-bookmark-anchor"></span><u><strong>Indemnite</strong></u>]</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> pam.entities;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> java.io.Serializable;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">class</span><span style="color:#000000"> Indemnite </span><span style="font-weight:bold;color:#7f0055">implements</span><span style="color:#000000"> Serializable {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">static</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">final</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">long</span><span style="color:#000000"> serialVersionUID = 1L;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> Long id;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> version;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> indice;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">double</span><span style="color:#000000"> baseHeure;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">double</span><span style="color:#000000"> entretienJour;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">double</span><span style="color:#000000"> repasJour;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">double</span><span style="color:#000000"> indemnitesCp;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> Indemnite() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> Indemnite(</span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> indice, </span><span style="font-weight:bold;color:#7f0055">double</span><span style="color:#000000"> baseHeure, </span><span style="font-weight:bold;color:#7f0055">double</span><span style="color:#000000"> entretienJour, </span><span style="font-weight:bold;color:#7f0055">double</span><span style="color:#000000"> repasJour, </span><span style="font-weight:bold;color:#7f0055">double</span><span style="color:#000000"> indemnitesCP) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        ...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    // getters et setters</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">   ....</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<ul>
+  <li>lignes 8-14 : les champs correspondent aux colonnes de la table [INDEMNITES] ;
+  </li>
+</ul>
+
+<p>[<span id="cotisation" name="cotisation" class="odt-bookmark-anchor"></span><u><strong>Cotisation</strong></u>]</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> pam.entities;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> java.io.Serializable;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">class</span><span style="color:#000000"> Cotisation </span><span style="font-weight:bold;color:#7f0055">implements</span><span style="color:#000000"> Serializable {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">static</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">final</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">long</span><span style="color:#000000"> serialVersionUID = 1L;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> Long id;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> version;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">double</span><span style="color:#000000"> csgrds;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">double</span><span style="color:#000000"> csgd;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">double</span><span style="color:#000000"> secu;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">double</span><span style="color:#000000"> retraite;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> Cotisation() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> Cotisation(</span><span style="font-weight:bold;color:#7f0055">double</span><span style="color:#000000"> csgrds, </span><span style="font-weight:bold;color:#7f0055">double</span><span style="color:#000000"> csgd, </span><span style="font-weight:bold;color:#7f0055">double</span><span style="color:#000000"> secu, </span><span style="font-weight:bold;color:#7f0055">double</span><span style="color:#000000"> retraite) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        ...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">   // getters et setters</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">   ...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<ul>
+  <li>lignes 8-13 : les champs correspondent aux colonnes de la table [COTISATIONS] ;
+  </li>
+</ul>
+
+<p><span id="refheading61958428607977" name="refheading61958428607977" class="odt-bookmark-anchor"></span></p>
+<h2 id="43-installation-du-serveur-web-json">4.3. Installation du serveur web / jSON</h2>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000004BE0000018FD9EFE949.png" width="607" height="200" style="display:inline-block; margin:4px;width:16.06cm;height:5.279cm;" class="odt-zoomable" data-zoom-src="images/10000000000004BE0000018FD9EFE949.png" /></td></tr></table>
+
+<p><span id="refheading154541029747953" name="refheading154541029747953" class="odt-bookmark-anchor"></span></p>
+<h3 id="431-installation">4.3.1. Installation</h3>
+<p>Le binaire Java du serveur web / jSON vous est fourni :</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000000DA0000007B701CC163.png" width="153" height="86" style="display:inline-block; margin:4px;width:4.039cm;height:2.281cm;" class="odt-zoomable" data-zoom-src="images/10000000000000DA0000007B701CC163.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td></tr></table>
+
+<p>Pour lancer le serveur web / jSON, procédez de la façon suivante :</p>
+<ul>
+  <li>lancez le SGBD MySQL ;
+  </li>
+  <li>assurez-vous que la BD [dbpam_hibernate] existe ;
+  </li>
+  <li>ouvrez une fenêtre DOS ;
+  </li>
+  <li>placez vous dans le dossier du jar ;
+  </li>
+  <li>tapez la commande :
+  </li>
+</ul>
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>java -jar pam-server-01-all-1.0.jar
+</code></pre></div>
+<p>Cela suppose que le binaire [java.exe] est dans le PATH de votre machine. Si ce n&#x27;est pas le cas, tapez le chemin complet de [java.exe], par exemple :</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>D:\Programs\devjava\java\jdk1.8\bin\java -jar pam-server-01-all-1.0.jar
+</code></pre></div>
+<p>Des logs s&#x27;affichent :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-24-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-24-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-24-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-24-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-24-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-24-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-24-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-24-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-24-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-24-10">10</a></span>
+<span class="normal"><a href="#__codelineno-24-11">11</a></span>
+<span class="normal"><a href="#__codelineno-24-12">12</a></span>
+<span class="normal"><a href="#__codelineno-24-13">13</a></span>
+<span class="normal"><a href="#__codelineno-24-14">14</a></span>
+<span class="normal"><a href="#__codelineno-24-15">15</a></span>
+<span class="normal"><a href="#__codelineno-24-16">16</a></span>
+<span class="normal"><a href="#__codelineno-24-17">17</a></span>
+<span class="normal"><a href="#__codelineno-24-18">18</a></span>
+<span class="normal"><a href="#__codelineno-24-19">19</a></span>
+<span class="normal"><a href="#__codelineno-24-20">20</a></span>
+<span class="normal"><a href="#__codelineno-24-21">21</a></span>
+<span class="normal"><a href="#__codelineno-24-22">22</a></span>
+<span class="normal"><a href="#__codelineno-24-23">23</a></span>
+<span class="normal"><a href="#__codelineno-24-24">24</a></span>
+<span class="normal"><a href="#__codelineno-24-25">25</a></span>
+<span class="normal"><a href="#__codelineno-24-26">26</a></span>
+<span class="normal"><a href="#__codelineno-24-27">27</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1"></a>.   ____          _            __ _ _
+<a id="__codelineno-24-2" name="__codelineno-24-2"></a> /\\ / ___&#39;_ __ _ <span class="ge">_(_</span>)_ __  __ _ \ \ \ \
+<a id="__codelineno-24-3" name="__codelineno-24-3"></a>( ( )\___ | &#39;_ | &#39;<span class="ge">_| | &#39;_</span> \/ _` | \ \ \ \
+<a id="__codelineno-24-4" name="__codelineno-24-4"></a> \\/  ___)| |<span class="ge">_)| | | | | || (_</span>| |  ) ) ) )
+<a id="__codelineno-24-5" name="__codelineno-24-5"></a>  &#39;  |____| .__|_| |<span class="ge">_|_</span>| |<span class="ge">_\_</span>_, | / / / /
+<a id="__codelineno-24-6" name="__codelineno-24-6"></a> =========|_|==============|___/=/_/_/_/
+<a id="__codelineno-24-7" name="__codelineno-24-7"></a> :: Spring Boot ::        (v1.1.1.RELEASE)
+<a id="__codelineno-24-8" name="__codelineno-24-8"></a>
+<a id="__codelineno-24-9" name="__codelineno-24-9"></a>2014-10-22 16:45:23.347  INFO 1868 --- [           main] pam.boot.BootWeb                         : Starting BootWeb on Gportpers3 with PID 1868 (D:\Temp\14-10-22\pam\server-pam.jar started by ST in D:\Temp\14-10-22\pam)
+<a id="__codelineno-24-10" name="__codelineno-24-10"></a>2014-10-22 16:45:23.414  INFO 1868 --- [           main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@689ab9e2: startup date [Wed Oct 22 16:45:23 CEST 2014]; root of context hierarchy
+<a id="__codelineno-24-11" name="__codelineno-24-11"></a>...
+<a id="__codelineno-24-12" name="__codelineno-24-12"></a>...
+<a id="__codelineno-24-13" name="__codelineno-24-13"></a>2014-10-22 16:45:31.147  INFO 1868 --- [           main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+<a id="__codelineno-24-14" name="__codelineno-24-14"></a>2014-10-22 16:45:31.484  INFO 1868 --- [           main] o.h.h.i.ast.ASTQueryTranslatorFactory    : HHH000397: Using ASTQueryTranslatorFactory
+<a id="__codelineno-24-15" name="__codelineno-24-15"></a>2014-10-22 16:45:33.564  INFO 1868 --- [           main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+<a id="__codelineno-24-16" name="__codelineno-24-16"></a>2014-10-22 16:45:33.804  INFO 1868 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/salaire/{SS}/{ht}/{jt}],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}&quot; onto public pam.restapi.FeuilleSalaireResponse pam.restapi.PamController.getFeuilleSalaire(java.lang.String,double,int)
+<a id="__codelineno-24-17" name="__codelineno-24-17"></a>2014-10-22 16:45:33.805  INFO 1868 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/employes],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}&quot; onto public pam.restapi.EmployesResponse pam.restapi.PamController.getEmployes()
+<a id="__codelineno-24-18" name="__codelineno-24-18"></a>2014-10-22 16:45:33.807  INFO 1868 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/error],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}&quot; onto public org.springframework.http.ResponseEntity&lt;java.util.Map&lt;java.lang.String, java.lang.Object&gt;&gt; org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+<a id="__codelineno-24-19" name="__codelineno-24-19"></a>2014-10-22 16:45:33.807  INFO 1868 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/error],methods=[],params=[],headers=[],consumes=[],produces=[text/html],custom=[]}&quot; onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest)
+<a id="__codelineno-24-20" name="__codelineno-24-20"></a>2014-10-22 16:45:33.839  INFO 1868 --- [           main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+<a id="__codelineno-24-21" name="__codelineno-24-21"></a>2014-10-22 16:45:33.839  INFO 1868 --- [           main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+<a id="__codelineno-24-22" name="__codelineno-24-22"></a>2014-10-22 16:45:34.384  INFO 1868 --- [           main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+<a id="__codelineno-24-23" name="__codelineno-24-23"></a>2014-10-22 16:45:34.535  INFO 1868 --- [           main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080/http
+<a id="__codelineno-24-24" name="__codelineno-24-24"></a>2014-10-22 16:45:34.538  INFO 1868 --- [           main] pam.boot.BootWeb                         : Started BootWeb in 11.916 seconds (JVM running for 12.725)
+<a id="__codelineno-24-25" name="__codelineno-24-25"></a>2014-10-22 16:45:39.329  INFO 1868 --- [       Thread-2] ationConfigEmbeddedWebApplicationContext : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@689ab9e2: startup date [Wed Oct 22 16:45:23 CEST 2014]; root of context hierarchy
+<a id="__codelineno-24-26" name="__codelineno-24-26"></a>2014-10-22 16:45:39.331  INFO 1868 --- [       Thread-2] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+<a id="__codelineno-24-27" name="__codelineno-24-27"></a>2014-10-22 16:45:39.333  INFO 1868 --- [       Thread-2] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit &#39;default&#39;
+</code></pre></div></td></tr></table></div>
+<ul>
+  <li>ligne 16 : l&#x27;URL [<b>/salaire/{SS}/{ht}/{jt}</b>] est découverte ;
+  </li>
+  <li>ligne 17 : l&#x27;URL [<b>/employes</b>] est découverte ;
+  </li>
+</ul>
+
+<p><span id="refheading8099721530162" name="refheading8099721530162" class="odt-bookmark-anchor"></span></p>
+<h3 id="432-les-url-du-service-webjson">4.3.2. Les URL du service web/jSON</h3>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/100000000000047C0000015BE373E46D.png" width="574" height="174" style="display:inline-block; margin:4px;width:15.187cm;height:4.591cm;" class="odt-zoomable" data-zoom-src="images/100000000000047C0000015BE373E46D.png" /></td></tr></table>
+
+<p>Le service web / jSON est implémenté par Spring MVC et expose deux URL :</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#646464">@</span><span style="color:#000000">RequestMapping(value = </span><span style="color:#2a00ff">&quot;/employes&quot;</span><span style="color:#000000">, method = RequestMethod.GET</span><span style="color:#000000">, produces = </span><span style="color:#2a00ff">&quot;application/json; charset=UTF-8&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> EmployesResponse getEmployes() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#646464">@</span><span style="color:#000000">RequestMapping(value = </span><span style="color:#2a00ff">&quot;/salaire/{SS}/{ht}/{jt}&quot;</span><span style="color:#000000">, method = RequestMethod.GET</span><span style="color:#000000">, produces = </span><span style="color:#2a00ff">&quot;application/json; charset=UTF-8&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> FeuilleSalaireResponse getFeuilleSalaire(</span><span style="color:#646464">@</span><span style="color:#000000">PathVariable(</span><span style="color:#2a00ff">&quot;SS&quot;</span><span style="color:#000000">) String SS, </span><span style="color:#646464">@</span><span style="color:#000000">PathVariable(</span><span style="color:#2a00ff">&quot;ht&quot;</span><span style="color:#000000">) </span><span style="font-weight:bold;color:#7f0055">double</span><span style="color:#000000"> ht, </span><span style="color:#646464">@</span><span style="color:#000000">PathVariable(</span><span style="color:#2a00ff">&quot;jt&quot;</span><span style="color:#000000">) </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> jt) {</span></span></span>
+</code></pre></div>
+
+<p>Le service web accepte les deux URL suivantes :</p>
+<ul>
+  <li>ligne 1 : <b>/employes</b> : pour avoir la liste des employés ;
+  </li>
+  <li>ligne 4 : <b>/salaire/SS/ht/jt</b> : pour avoir la feuille de salaire de l&#x27;employé de n° [SS] ayant travaillé [ht] heures pendant [jt] jours ;
+  </li>
+</ul>
+
+<p>Voici des copies d&#x27;écran montrant cela.</p>
+<p>On demande les employés :</p>
+<p><img src="images/100000000000034100000095DD148806.png" width="583" height="104" style="width:15.431cm;height:2.76cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000034100000095DD148806.png" /></p>
+<p>On coupe la base, on relance le serveur et on demande les employés :</p>
+<p><img src="images/100000000000039E00000096254218C9.png" width="648" height="105" style="width:17.15cm;height:2.78cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000039E00000096254218C9.png" /></p>
+<p>On demande un salaire :</p>
+<p><img src="images/100000000000039B000000A34A921A73.png" width="646" height="114" style="width:17.09cm;height:3.02cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000039B000000A34A921A73.png" /></p>
+<p>On demande le salaire d&#x27;une personne inexistante :</p>
+<p><img src="images/1000000000000234000000681AB9AB40.png" width="395" height="73" style="width:10.44cm;height:1.93cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000234000000681AB9AB40.png" /></p>
+<p><span id="refheading8099921530162" name="refheading8099921530162" class="odt-bookmark-anchor"></span></p>
+<h3 id="433-les-reponses-json-du-service-webjson">4.3.3. Les réponses jSON du service web/jSON</h3>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/100000000000047300000176CA966EB5.png" width="570" height="187" style="display:inline-block; margin:4px;width:15.069cm;height:4.948cm;" class="odt-zoomable" data-zoom-src="images/100000000000047300000176CA966EB5.png" /></td></tr></table>
+
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000000C6000000A518D396C1.png" width="139" height="116" style="display:inline-block; margin:4px;width:3.671cm;height:3.06cm;" class="odt-zoomable" data-zoom-src="images/10000000000000C6000000A518D396C1.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td></tr></table>
+
+<p>Les URL du service web / jSON envoient des réponses de type [Response&lt;T&gt;] :</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> client.android.dao.service;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> java.util.List;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">class</span><span style="color:#000000"> Response&lt;T&gt; {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// ----------------- propriétés</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// statut de l&#x27;opération</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> status;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// les éventuels messages d&#x27;status</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> List&lt;String&gt; messages;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// le corps de la réponse</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> T body;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// constructeurs</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> Response() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> Response(</span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> status, List&lt;String&gt; messages, T body) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="font-weight:bold;color:#7f0055">this</span><span style="color:#000000">.status = status;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="font-weight:bold;color:#7f0055">this</span><span style="color:#000000">.messages = messages;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="font-weight:bold;color:#7f0055">this</span><span style="color:#000000">.body = body;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// getters et setters</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<ul>
+  <li>l&#x27;URL [<b>/employes</b>] renvoie un type <b>Response&lt;List&lt;Employe&gt;&gt;</b> ;
+  </li>
+  <li>l&#x27;URL [<b>/salaire</b>] renvoie un type <b>Response&lt;FeuilleSalaire&gt;</b> ;
+  </li>
+</ul>
+
+<p>La classe [FeuilleSalaire] est la suivante :</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> pam.entities;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> java.io.Serializable;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">class</span><span style="color:#000000"> FeuilleSalaire </span><span style="font-weight:bold;color:#7f0055">implements</span><span style="color:#000000"> Serializable {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">static</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">final</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">long</span><span style="color:#000000"> serialVersionUID = 1L;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// champs privés</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> Employe employe;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> Cotisation cotisation;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> ElementsSalaire elementsSalaire;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// constructeurs</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> FeuilleSalaire() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> FeuilleSalaire(Employe employe, Cotisation cotisation, ElementsSalaire elementsSalaire) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        ...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// getters et setters</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">   ...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<ul>
+  <li>ligne 9 : la classe [Employe] a été présentée paragraphe <a href="#employe">4.2.3</a>;
+  </li>
+  <li>ligne 10 : la classe [Cotisation] a été présentée paragraphe <a href="#cotisation">4.2.3</a> ;
+  </li>
+</ul>
+
+<p>La classe [ElementsSalaire] (ligne 11) est la suivante :</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> pam.entities;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> java.io.Serializable;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">class</span><span style="color:#000000"> ElementsSalaire </span><span style="font-weight:bold;color:#7f0055">implements</span><span style="color:#000000"> Serializable {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">static</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">final</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">long</span><span style="color:#000000"> serialVersionUID = 1L;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// champs privés</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">double</span><span style="color:#000000"> salaireBase;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">double</span><span style="color:#000000"> cotisationsSociales;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">double</span><span style="color:#000000"> indemnitesEntretien;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">double</span><span style="color:#000000"> indemnitesRepas;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">double</span><span style="color:#000000"> salaireNet;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// constructeurs</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> ElementsSalaire() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> ElementsSalaire(</span><span style="font-weight:bold;color:#7f0055">double</span><span style="color:#000000"> salaireBase, </span><span style="font-weight:bold;color:#7f0055">double</span><span style="color:#000000"> cotisationsSociales, </span><span style="font-weight:bold;color:#7f0055">double</span><span style="color:#000000"> indemnitesEntretien, </span><span style="font-weight:bold;color:#7f0055">double</span><span style="color:#000000"> indemnitesRepas, </span><span style="font-weight:bold;color:#7f0055">double</span><span style="color:#000000"> salaireNet) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        ...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// getters et setters</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    ...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<p><span id="refheading61960428607977" name="refheading61960428607977" class="odt-bookmark-anchor"></span></p>
+<h2 id="44-tests-du-client-android">4.4. Tests du client Android</h2>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/100000000000061700000116321EEDE2.png" width="680" height="121" style="display:inline-block; margin:4px;width:17.999cm;height:3.209cm;" class="odt-zoomable" data-zoom-src="images/100000000000061700000116321EEDE2.png" /></td></tr></table>
+
+<p>Le binaire exécutable du client Android terminé vous est donné :</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000000C1000000A28979742E.png" width="135" height="113" style="display:inline-block; margin:4px;width:3.57cm;height:3cm;" class="odt-zoomable" data-zoom-src="images/10000000000000C1000000A28979742E.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td></tr></table>
+
+<p>Avec la souris déposez le binaire [pam-client.apk] ci-dessus sur un émulateur de tablette [GenyMotion]. Il va alors être enregistré puis exécuté. Lancez également le serveur web / jSON si ce n&#x27;est déjà fait. Le client Android a pour objet de récupérer les informations renvoyées par le serveur web / jSON et de les mettre en forme. Les différentes vues du client Android sont les suivantes :</p>
+<p>Il faut tout d&#x27;abord se connecter au service web / jSON :</p>
+<p><img src="images/10000000000004FD0000015BE18A84BE.png" width="638" height="173" style="width:16.88cm;height:4.59cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004FD0000015BE18A84BE.png" /></p>
+<ul>
+  <li>en [1], on donne l&#x27;URL du service web / jSON. Avec l&#x27;émulateur, mettez l&#x27;une des adresses IP du PC (mais pas 127.0.0.1). Avec une tablette, mettez l&#x27;adresse wifi de la machine du serveur web / jSON et inhibez le pare-feu du poste serveur s&#x27;il en a un car il risque de bloquer les appels entrants ;
+  </li>
+  <li>en [2], on se connecte ;
+  </li>
+</ul>
+
+<p>On arrive alors à la page de simulation :</p>
+<p><img src="images/1000000000000503000001601F903F03.png" width="637" height="176" style="width:16.85cm;height:4.65cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000503000001601F903F03.png" /></p>
+<ul>
+  <li>en [3], on choisit un employé ;
+  </li>
+  <li>en [4], on indique un nombre d&#x27;heures ;
+  </li>
+  <li>en [5], on indique un nombre de jours ;
+  </li>
+  <li>en [6], on demande la simulation ;
+  </li>
+</ul>
+
+<p>La page de simulation obtenue est la suivante :</p>
+<p><img src="images/100000000000050200000340DEB3438A.png" width="638" height="416" style="width:16.88cm;height:11cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000050200000340DEB3438A.png" /></p>
+<ul>
+  <li>en [7], la simulation obtenue ;
+  </li>
+  <li>en [8], on l&#x27;enregistre ;
+  </li>
+</ul>
+
+<p><img src="images/1000000000000501000001EB95051507.png" width="638" height="245" style="width:16.88cm;height:6.489cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000501000001EB95051507.png" /></p>
+<ul>
+  <li>en [9], la liste des simulations ;
+  </li>
+  <li>en [10], on retire une simulation ;
+  </li>
+</ul>
+
+<p><img src="images/10000000000004FB0000012B520E5D9F.png" width="638" height="149" style="width:16.88cm;height:3.949cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004FB0000012B520E5D9F.png" /></p>
+<ul>
+  <li>en [11], il n&#x27;y a plus de simulations ;
+  </li>
+  <li>en [12], on retourne au formulaire de simulation ;
+  </li>
+</ul>
+
+<p><img src="images/100000000000050200000340524BAAB3.png" width="638" height="416" style="width:16.88cm;height:11cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000050200000340524BAAB3.png" /></p>
+<ul>
+  <li>en [13], on retrouve le formulaire ;
+  </li>
+  <li>en [14], on revient vers la page de configuration;
+  </li>
+</ul>
+
+<p><img src="images/10000000000005050000013C37948572.png" width="638" height="158" style="width:16.88cm;height:4.18cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005050000013C37948572.png" /></p>
+<ul>
+  <li>en [15], on retrouve le formulaire de connexion initial.
+  </li>
+</ul>
+
+<p><span id="refheading61962428607977" name="refheading61962428607977" class="odt-bookmark-anchor"></span></p>
+<h2 id="45-travail-a-faire">4.5. Travail à faire</h2>
+<p>Le squelette du client Android présenté précédemment vous est donné. Il a été construit à partir du projet [client-android-skel] décrit au paragraphe <a href="squelette-dun-client-android-communicant-avec-un-service-web--json.html#refheading1083471369936500">2</a>.</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000000C60000009F32DA1ED2.png" width="139" height="111" style="display:inline-block; margin:4px;width:3.671cm;height:2.94cm;" class="odt-zoomable" data-zoom-src="images/10000000000000C60000009F32DA1ED2.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td></tr></table>
+
+<p>Le projet est exécutable et a déjà les vues nécessaires. Il y a simplement du code à rajouter pour que l&#x27;application fasse ce qu&#x27;elle a à faire. La procédure à suivre est la suivante :</p>
+<ul>
+  <li>exécutez la version complète pour appréhender le travail à faire ;
+  </li>
+  <li>exécutez la version allégée et étudiez le code de celle-ci. Il respecte les méthodes de conception utilisées dans les pages précédentes ;
+  </li>
+  <li>ajoutez le code manquant ;
+  </li>
+</ul>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner">
+
+      <div>
+        <a href="https://stahe.github.io" target="_blank">
+          https://stahe.github.io
+        </a>
+        <br>
+        Ce cours-tutoriel rédigé par <strong>Serge Tahé</strong> est mis à la disposition du public selon les termes de la
+        <em>Licence Creative Commons Attribution – Pas d'utilisation commerciale –
+        Partage dans les mêmes conditions 3.0 non modifiée</em>.
+
+      </div>
+
+    </div>
+  </div>
+
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="javascripts/focus.js"></script>
+      
+    
+  </body>
+</html>
